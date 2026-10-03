@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sistem Quality Control</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-title">
+
+            <h1>
+                Sistem Quality Control
+            </h1>
+
+            <p>
+                Monitoring QC Raspberry Pi
+            </p>
+
+        </div>
+
+
+        <div class="connection-status">
+
+            <span
+                id="status-dot"
+                class="status-dot"
+            ></span>
+
+            <span id="connection-text">
+                Menghubungkan...
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         KONTEN
+    ====================================================== -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             STATUS SISTEM
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Status Sistem
+            </h2>
+
+
+            <div class="status-grid">
+
+
+                <div class="status-item">
+
+                    <span class="status-label">
+                        Raspberry Pi
+                    </span>
+
+                    <strong id="raspberry-status">
+                        Menghubungkan...
+                    </strong>
+
+                </div>
+
+
+                <div class="status-item">
+
+                    <span class="status-label">
+                        Kamera
+                    </span>
+
+                    <strong id="camera-status">
+                        Belum diaktifkan
+                    </strong>
+
+                </div>
+
+
+                <div class="status-item">
+
+                    <span class="status-label">
+                        Mode
+                    </span>
+
+                    <strong id="mode-status">
+                        Standby
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             KAMERA
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Kamera
+            </h2>
+
+
+            <div class="camera-area">
+
+                <div class="camera-message">
+
+                    Kamera belum diaktifkan
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REKAP HARIAN
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Rekap Harian
+            </h2>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Tanggal</th>
+
+                            <th>GOOD</th>
+
+                            <th>NG Upper Kiri</th>
+
+                            <th>NG Upper Kanan</th>
+
+                            <th>NG Lower Kiri</th>
+
+                            <th>NG Lower Kanan</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="rekap-table">
+
+                        <tr>
+
+                            <td colspan="6">
+                                Belum ada data
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DATA SAAT INI
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Data Saat Ini
+            </h2>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>No</th>
+
+                            <th>Tanggal</th>
+
+                            <th>Waktu</th>
+
+                            <th>Foto</th>
+
+                            <th>Tinggi Kiri</th>
+
+                            <th>Tinggi Kanan</th>
+
+                            <th>Upper Kiri</th>
+
+                            <th>Lower Kiri</th>
+
+                            <th>Upper Kanan</th>
+
+                            <th>Lower Kanan</th>
+
+                            <th>Hasil</th>
+
+                            <th>Aksi</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="data-table">
+
+                        <tr>
+
+                            <td colspan="12">
+                                Belum ada data
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TOMBOL UTAMA
+        ================================================== -->
+
+        <section class="actions">
+
+
+            <button
+                id="save-button"
+                class="button save-button"
+                type="button"
+            >
+                SIMPAN
+            </button>
+
+
+            <button
+                id="shutdown-button"
+                class="button shutdown-button"
+                type="button"
+            >
+                SHUTDOWN
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         POPUP EDIT
+    ====================================================== -->
+
+    <div
+        id="edit-popup"
+        class="popup hidden"
+    >
+
+        <div class="popup-box">
+
+            <h2>
+                Edit Data
+            </h2>
+
+
+            <input
+                type="hidden"
+                id="edit-id"
+            >
+
+
+            <label>
+                Tanggal
+            </label>
+
+            <input
+                type="text"
+                id="edit-tanggal"
+            >
+
+
+            <label>
+                Waktu
+            </label>
+
+            <input
+                type="text"
+                id="edit-waktu"
+            >
+
+
+            <label>
+                Tinggi Kiri
+            </label>
+
+            <input
+                type="text"
+                id="edit-tinggi-kiri"
+            >
+
+
+            <label>
+                Tinggi Kanan
+            </label>
+
+            <input
+                type="text"
+                id="edit-tinggi-kanan"
+            >
+
+
+            <label>
+                Upper Kiri
+            </label>
+
+            <input
+                type="text"
+                id="edit-upper-kiri"
+            >
+
+
+            <label>
+                Lower Kiri
+            </label>
+
+            <input
+                type="text"
+                id="edit-lower-kiri"
+            >
+
+
+            <label>
+                Upper Kanan
+            </label>
+
+            <input
+                type="text"
+                id="edit-upper-kanan"
+            >
+
+
+            <label>
+                Lower Kanan
+            </label>
+
+            <input
+                type="text"
+                id="edit-lower-kanan"
+            >
+
+
+            <label>
+                Hasil
+            </label>
+
+            <input
+                type="text"
+                id="edit-hasil"
+            >
+
+
+            <div class="popup-actions">
+
+                <button
+                    id="edit-save"
+                    class="button save-button"
+                >
+                    SIMPAN
+                </button>
+
+                <button
+                    id="edit-cancel"
+                    class="button cancel-button"
+                >
+                    BATAL
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/api.js"></script>
+
+    <script src="js/tabel.js"></script>
+
+    <script src="js/edit.js"></script>
+
+    <script src="js/power.js"></script>
+
+
+</body>
+
+</html>

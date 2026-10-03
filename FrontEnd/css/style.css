@@ -1,0 +1,553 @@
+/* ============================================================
+   DASAR
+============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f2f4f7;
+
+    color: #222;
+
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.header {
+
+    background: #ffffff;
+
+    padding: 20px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid #dddddd;
+
+}
+
+
+.header-title h1 {
+
+    margin: 0;
+
+    font-size: 24px;
+
+}
+
+
+.header-title p {
+
+    margin: 6px 0 0;
+
+    color: #777777;
+
+    font-size: 14px;
+
+}
+
+
+/* ============================================================
+   STATUS
+============================================================ */
+
+.connection-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+}
+
+
+.status-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    background: #999999;
+
+    border-radius: 50%;
+
+}
+
+
+.status-dot.connected {
+
+    background: #22c55e;
+
+}
+
+
+.status-dot.error {
+
+    background: #dc2626;
+
+}
+
+
+/* ============================================================
+   CONTAINER
+============================================================ */
+
+.container {
+
+    width: 95%;
+
+    max-width: 1200px;
+
+    margin: 25px auto;
+
+}
+
+
+/* ============================================================
+   CARD
+============================================================ */
+
+.card {
+
+    background: #ffffff;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 8px;
+
+}
+
+
+.card h2 {
+
+    margin: 0 0 15px;
+
+    font-size: 18px;
+
+}
+
+
+/* ============================================================
+   STATUS SISTEM
+============================================================ */
+
+.status-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.status-item {
+
+    padding: 15px;
+
+    background: #f5f6f8;
+
+    border-radius: 6px;
+
+}
+
+
+.status-label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    color: #777777;
+
+}
+
+
+/* ============================================================
+   KAMERA
+============================================================ */
+
+.camera-area {
+
+    width: 100%;
+
+    height: 350px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #111111;
+
+    border-radius: 6px;
+
+}
+
+
+.camera-message {
+
+    color: #aaaaaa;
+
+}
+
+
+/* ============================================================
+   TABLE
+============================================================ */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    min-width: 1100px;
+
+    border-collapse: collapse;
+
+    font-size: 14px;
+
+}
+
+
+th,
+td {
+
+    padding: 10px;
+
+    border: 1px solid #dddddd;
+
+    text-align: center;
+
+}
+
+
+th {
+
+    background: #f1f3f5;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+}
+
+
+td {
+
+    white-space: nowrap;
+
+}
+
+
+/* ============================================================
+   TOMBOL
+============================================================ */
+
+.actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.button {
+
+    min-width: 110px;
+
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.button:hover {
+
+    opacity: 0.9;
+
+}
+
+
+.save-button {
+
+    background: #22c55e;
+
+    color: #ffffff;
+
+}
+
+
+.shutdown-button {
+
+    background: #dc2626;
+
+    color: #ffffff;
+
+}
+
+
+.cancel-button {
+
+    background: #777777;
+
+    color: #ffffff;
+
+}
+
+
+/* ============================================================
+   TOMBOL AKSI DALAM TABEL
+============================================================ */
+
+.edit-button {
+
+    padding: 6px 10px;
+
+    margin-right: 5px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+.delete-button {
+
+    padding: 6px 10px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #dc2626;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+
+/* ============================================================
+   POPUP
+============================================================ */
+
+.popup {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+
+.popup.hidden {
+
+    display: none;
+
+}
+
+
+.popup-box {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 8px;
+
+}
+
+
+.popup-box h2 {
+
+    margin-top: 0;
+
+}
+
+
+.popup-box label {
+
+    display: block;
+
+    margin-top: 12px;
+
+    margin-bottom: 5px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.popup-box input {
+
+    width: 100%;
+
+    padding: 9px;
+
+    border: 1px solid #cccccc;
+
+    border-radius: 5px;
+
+}
+
+
+.popup-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .header {
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+    }
+
+
+    .header-title h1 {
+
+        font-size: 20px;
+
+    }
+
+
+    .container {
+
+        width: 94%;
+
+        margin-top: 15px;
+
+    }
+
+
+    .status-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .camera-area {
+
+        height: 250px;
+
+    }
+
+
+    .actions {
+
+        justify-content: stretch;
+
+    }
+
+
+    .button {
+
+        flex: 1;
+
+    }
+
+}
